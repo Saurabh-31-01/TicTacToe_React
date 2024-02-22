@@ -2,16 +2,13 @@ import { useState } from 'react';
 import './styles.scss';
 import Board from './components/Board';
 import { calculateWinner } from './winner';
+import StatusMsg from './components/StatusMsg';
 
 function App() {
   const [square, setSquare] = useState(Array(9).fill(null));
   const [isXnext, setIsXnext] = useState(false);
 
   const winner = calculateWinner(square);
-  const nextPlayer = isXnext ? 'X' : 'O'; // this is derived state there is no need to create new state for it
-  const showStatus = winner
-    ? `winner is ${winner}`
-    : `Next Player is ${nextPlayer}`;
 
   const handleSquareClick = clickedPosition => {
     if (square[clickedPosition] || winner) return;
@@ -31,7 +28,7 @@ function App() {
 
   return (
     <div className="app">
-      <h2>{showStatus}</h2>
+      <StatusMsg winner={winner} isXnext={isXnext} square={square} />
       <Board square={square} handleSquareClick={handleSquareClick} />
     </div>
   );
