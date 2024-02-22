@@ -1,4 +1,6 @@
-const StatusMsg = ({ winner, isXnext, square }) => {
+const StatusMsg = ({ winner, gamingBoard }) => {
+  const { square, isXnext } = gamingBoard;
+
   const noMovesLeft = square.every(squareValue => squareValue != null);
 
   const nextPlayer = isXnext ? 'X' : 'O'; // this is derived state there is no need to create new state for it
