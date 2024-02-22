@@ -72,7 +72,7 @@ function App() {
         Start New Game
       </button>
 
-      <h2>Current Gaming History</h2>
+      <h2 style={{ fontWeight: 'normal' }}>Current Gaming History</h2>
 
       <History history={history} moveTo={moveTo} currMove={currMove} />
     </div>
